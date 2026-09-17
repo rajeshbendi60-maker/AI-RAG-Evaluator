@@ -1,0 +1,24 @@
+# Virtual Environments
+.venv/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Environment Variables (Keep your API keys secret!)
+.env
+
+# Database and Data Files (These are generated locally)
+chroma_db/
+data/
+bm25_retriever.pkl
+
+# Python caches
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+
+# IDE settings
+.vscode/
+.idea/
