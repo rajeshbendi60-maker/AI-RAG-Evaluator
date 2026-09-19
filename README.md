@@ -1,26 +1,34 @@
-# Advanced RAG System
+# 🧠 Ultimate AI: Multi-Agent Visual RAG SaaS
 
-An intelligent, state-of-the-art Document Q&A chatbot built with Streamlit, LangChain, and the Google Gemini API. This application allows users to upload PDF documents and ask questions in a conversational interface, utilizing advanced retrieval techniques to ensure highly accurate, hallucination-free answers.
+An enterprise-grade, multi-tenant SaaS application built with Streamlit, LangChain, and Google Gemini. This platform moves far beyond standard semantic search by implementing a Multi-Agent Debate architecture, 3D Knowledge Graphs, real-time analytics, and secure multi-tenant isolation.
 
-## Features
+## 🌟 Enterprise SaaS Features
 
-This project moves beyond standard semantic search by implementing a highly optimized, production-ready RAG (Retrieval-Augmented Generation) architecture:
+- **Multi-Tenant Architecture**: Complete data isolation. Every user gets their own dedicated vector database, user directory, and graph data to prevent data leakage.
+- **Secure Authentication**: Built-in hashed login system powered by `streamlit-authenticator`. 
+- **Admin Analytics Dashboard**: Real-time SaaS usage tracking (Total Users, Queries Today, MRR, AI Judge Scores) backed by a lightweight SQLite database.
+- **Custom UI / UX**: A fully styled, responsive frontend featuring centered login cards, custom typography, sidebar profiles, and modern chat bubbles.
 
-- Conversational Memory: Remembers chat history for follow-up questions.
-- Multi-Query Expansion: Uses an LLM to rewrite user queries into multiple variations, searching all of them simultaneously to capture broader context.
-- Hybrid Search (Ensemble Retriever): Fuses standard vector search (ChromaDB) with keyword-based search (BM25) to capture both semantic meaning and exact terminology.
-- Cross-Encoder Re-ranking: Uses a local lightweight HuggingFace model (ms-marco-MiniLM-L-6-v2) to strictly re-score and re-rank the retrieved chunks, ensuring the most relevant context is fed to the LLM.
-- Custom LLM-as-a-Judge: Automatically evaluates its own answers on Faithfulness and Relevance without relying on heavy external metric libraries.
+## 🤖 Advanced AI Capabilities
 
-## Tech Stack
-- Frontend: Streamlit
-- Framework: LangChain
-- LLM & Embeddings: Google Gemini (gemini-3.6-flash, gemini-embedding-001)
-- Vector Database: ChromaDB
-- Keyword Search: rank_bm25
-- Local Re-ranker: sentence-transformers
+- **Multi-Agent Debate System**: A trio of specialized AI agents working together to answer user queries:
+  1. *PDF Agent*: Scans local databases for document context.
+  2. *Web Agent*: Searches the live internet (DuckDuckGo) for real-time data.
+  3. *Manager Agent*: Synthesizes both reports, resolves contradictions, and delivers the final answer based on a dynamically customizable persona.
+- **3D Knowledge Graphs**: Extracts entities and relationships from PDFs to render fully interactive, drag-and-drop 3D network visualizations using `PyVis`.
+- **LLM-as-a-Judge & Self-Correction**: Uses an integrated Ragas-style evaluator to score its own answers. If the AI detects hallucinations (score < 0.75), it automatically forces a self-correction rewrite before showing the user.
+- **Prompt Injection Firewall**: A dedicated Security Agent scans all user inputs for malicious jailbreaks or prompt injections before passing them to the main pipeline.
+- **Hybrid Search & Local Reranking**: Fuses semantic vector search (ChromaDB) with keyword search (BM25), then reranks the results using a local HuggingFace Cross-Encoder.
 
-## Getting Started
+## ⚙️ Tech Stack
+
+- **Frontend**: Streamlit, Custom CSS
+- **AI / Framework**: LangChain (Classic), Google Gemini (`gemini-3.6-flash`), DuckDuckGo
+- **Databases**: ChromaDB (Vectors), SQLite (Usage Analytics & LLM Caching)
+- **Visualizations**: PyVis (3D Graphs), Pandas & Streamlit Charts (Analytics)
+- **Security**: Streamlit-Authenticator, bcrypt
+
+## 🚀 Getting Started
 
 ### 1. Clone the repository
 ```bash
@@ -30,24 +38,18 @@ cd AI-RAG-Evaluator
 
 ### 2. Install dependencies
 ```bash
-pip install -r requirements.txt
+python -m pip install -r requirements.txt
 ```
-(Note: This project uses local Cross-Encoders which require PyTorch. The initial download may take a few minutes depending on your internet speed.)
 
-### 3. Setup API Keys
-Create a .env file in the root directory and add your Google Gemini API key:
-```ini
-GOOGLE_API_KEY=your_api_key_here
-```
-(Alternatively, you can input the API key directly in the app's sidebar).
-
-### 4. Run the app
+### 3. Run the application
 ```bash
-streamlit run app.py
+python -m streamlit run app.py
 ```
 
-## Usage
-1. Open the local URL provided by Streamlit (usually http://localhost:8501).
-2. Upload one or more PDF files via the sidebar.
-3. Click "Process Documents" to chunk the text and build both the Chroma vector database and the BM25 keyword index.
-4. Start chatting!
+### 4. Log in
+To bypass the mock Stripe paywall and access the system, use the default administrator credentials:
+- **Username**: `admin`
+- **Password**: `abc`
+
+## 🛠️ Deployment (CI/CD)
+This project includes a `.github/workflows/deploy.yml` pipeline and a `Dockerfile` for seamless deployment to Google Cloud Run, AWS, or any Docker-compatible hosting environment.

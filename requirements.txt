@@ -8,3 +8,13 @@ langchain-community
 rank_bm25
 sentence-transformers
 langchain-huggingface
+PyMuPDF
+duckduckgo-search
+gTTS
+networkx
+pyvis
+streamlit-authenticator
+pyyaml
+SQLAlchemy
+pandas
+numpy

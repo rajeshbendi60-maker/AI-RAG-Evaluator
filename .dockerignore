@@ -1,0 +1,11 @@
+.venv
+.env
+data/
+chroma_db/
+__pycache__/
+*.pkl
+*.html
+*.mp3
+.git/
+.gitignore
+.vscode/

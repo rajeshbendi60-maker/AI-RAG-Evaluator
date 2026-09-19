@@ -11,7 +11,11 @@ venv.bak/
 # Database and Data Files (These are generated locally)
 chroma_db/
 data/
-bm25_retriever.pkl
+bm25_retriever*.pkl
+*.db
+*.sqlite3
+graph_*.html
+response_*.mp3
 
 # Python caches
 __pycache__/
