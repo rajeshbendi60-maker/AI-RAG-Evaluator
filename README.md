@@ -1,13 +1,15 @@
 # Ultimate AI: Multi-Agent Visual RAG SaaS
 
-An enterprise-grade, multi-tenant SaaS application built with Streamlit, LangChain, and Google Gemini. This platform moves far beyond standard semantic search by implementing a Multi-Agent Debate architecture, 3D Knowledge Graphs, real-time analytics, and secure multi-tenant isolation.
+An enterprise-grade, multi-tenant SaaS application built with Streamlit, LangChain, and Google Gemini. This platform moves far beyond standard semantic search by implementing a Multi-Agent Debate architecture, 3D Knowledge Graphs, real-time analytics, and isolated document-specific chat threads.
 
 ## Enterprise SaaS Features
 
+- **Document-Specific Multi-Chat Architecture**: (New!) Uploaded PDFs now act as isolated, standalone chat threads (ChatGPT style), managed elegantly in the sidebar. The AI automatically isolates its memory and database searches to your active document.
 - **Multi-Tenant Architecture**: Complete data isolation. Every user gets their own dedicated vector database, user directory, and graph data to prevent data leakage.
+- **Persistent API Keys**: Secure, account-specific API key storage that automatically loads across sessions so you never have to re-enter your Google API token.
 - **Secure Authentication**: Built-in hashed login system powered by `streamlit-authenticator`. 
 - **Admin Analytics Dashboard**: Real-time SaaS usage tracking (Total Users, Queries Today, MRR, AI Judge Scores) backed by a lightweight SQLite database.
-- **Custom UI / UX**: A fully styled, responsive frontend featuring centered login cards, custom typography, sidebar profiles, and modern chat bubbles.
+- **Custom UI / UX**: A fully styled, responsive frontend featuring sleek CSS gradient titles, dynamic settings popovers, right-aligned chat bubbles, and modern UI elements.
 
 ## Advanced AI Capabilities
 
@@ -47,7 +49,7 @@ python -m streamlit run app.py
 ```
 
 ### 4. Log in
-To bypass the mock Stripe paywall and access the system, use the default administrator credentials:
+To access the system, use the default administrator credentials:
 - **Username**: `admin`
 - **Password**: `abc`
 
